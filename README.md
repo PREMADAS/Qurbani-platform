@@ -3,7 +3,7 @@
 QurbaniHat is a modern livestock marketplace where users can explore animals available for Qurbani, such as cows and goats. Users can browse animal details and place a booking after logging in to the platform.
 
 ## 🔗 Links
-- **GitHub Repository:** [https://github.com/PREMADAS/Qurbani-platform](https://github.com/PREMADAS/Qurbani-platform)
+- **GitHub Repository:** [https://github.com/PREMADAS/Qurbani-platform]
 - **Live URL:** [https://qurbani-platform-troy-git-main-prema-das-projects.vercel.app/]
 
 ## Purpose
