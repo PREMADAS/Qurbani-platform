@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTransition, animated } from "@react-spring/web";
+import Link from "next/link";
 
 export default function AnimalList({ initialAnimals }) {
     const [animals, setAnimals] = useState(initialAnimals);
@@ -66,9 +67,10 @@ export default function AnimalList({ initialAnimals }) {
                                     ৳ {animal.price.toLocaleString()}
                                 </p>
                                 <div className="card-actions">
-                                    <button className="btn w-full font-serif hover:bg-[#1F2A24] hover:text-white">
+                                    <Link href={`/animal/${animal.id}`} className="btn w-full font-serif hover:bg-[#1F2A24] hover:text-white"> <button >
                                         View Details
                                     </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
