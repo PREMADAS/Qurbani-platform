@@ -16,7 +16,7 @@ const MyProfilePage = () => {
 
     return (
         <div className="min-h-screen bg-white flex items-center justify-center px-6 py-12">
-            <div className="w-full max-w-md bg-[#F7F2E7] border border-[#1F2A24]/10 rounded-md p-10 flex flex-col items-center text-center">
+            <div className="w-full max-w-md bg-gray-200 border border-[#1F2A24]/10 rounded-md p-10 flex flex-col items-center text-center">
                 {user.image ? (
                     <img
                         src={user.image}
