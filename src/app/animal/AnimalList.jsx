@@ -5,7 +5,7 @@ import { useTransition, animated } from "@react-spring/web";
 import Link from "next/link";
 
 export default function AnimalList({ initialAnimals }) {
-    const [animals, setAnimals] = useState(initialAnimals);
+    const [animals, setAnimals] = useState(initialAnimals || []);
     const [sortOrder, setSortOrder] = useState("default");
 
     const handleSort = (order) => {
@@ -19,7 +19,7 @@ export default function AnimalList({ initialAnimals }) {
     };
 
     const transitions = useTransition(animals, {
-        key: (animal) => `${animal.id}-${sortOrder}`,
+        key: (animal) => animal.id,
         from: { opacity: 0, transform: "translateY(20px)" },
         enter: { opacity: 1, transform: "translateY(0px)" },
         leave: { opacity: 0, transform: "translateY(-20px)" },
@@ -64,7 +64,7 @@ export default function AnimalList({ initialAnimals }) {
                                     {animal.weight} &middot; {animal.age}
                                 </p>
                                 <p className="font-bold text-[#7A2E2A]">
-                                    ৳ {animal.price.toLocaleString()}
+                                    ৳ {animal.price ? animal.price.toLocaleString() : "N/A"}
                                 </p>
                                 <div className="card-actions">
                                     <Link href={`/animal/${animal.id}`} className="btn w-full font-serif hover:bg-[#1F2A24] hover:text-white"> <button >

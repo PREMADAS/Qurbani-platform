@@ -13,10 +13,13 @@ const AnimalDetailsPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3001/animals") // তোমার db.json এর লোকাল পাথ অনুযায়ী পরিবর্তন করো
+        fetch("/db.json")
             .then((res) => res.json())
             .then((data) => {
-                const found = data.find((item) => String(item.id) === String(id));
+
+                const animalsArray = data.animals || [];
+                const found = animalsArray.find((item) => String(item.id) === String(id));
+
                 setAnimal(found);
                 setLoading(false);
             })
@@ -50,9 +53,6 @@ const AnimalDetailsPage = () => {
 
     return (
         <div className="min-h-screen bg-white px-6 md:px-16 py-10">
-
-
-
             <div className="grid md:grid-cols-2 gap-10">
                 {/* Left: Image */}
                 <div className="relative bg-gray-200 border border-[#1F2A24]/10 rounded-md h-[400px] p-4">
@@ -76,7 +76,8 @@ const AnimalDetailsPage = () => {
                     </p>
 
                     <p className="text-[#7A2E2A] font-bold text-3xl font-mono mt-4">
-                        ৳ {animal.price.toLocaleString()}
+
+                        ৳ {animal.price ? animal.price.toLocaleString() : "N/A"}
                     </p>
 
                     {/* Info Grid */}
@@ -93,7 +94,8 @@ const AnimalDetailsPage = () => {
                             <p className="text-xs text-[#6B675C] uppercase">Age</p>
                             <p className="font-bold text-lg text-[#1F2A24]">{animal.age}</p>
                         </div>
-                        <div className="bg-gray-200 border-[#1F2A24]/10 rounded-md p-4">
+
+                        <div className="bg-gray-200 border border-[#1F2A24]/10 rounded-md p-4">
                             <p className="text-xs text-[#6B675C] uppercase">Location</p>
                             <p className="font-bold text-lg text-[#1F2A24]">{animal.location}</p>
                         </div>
@@ -151,7 +153,7 @@ const AnimalDetailsPage = () => {
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-[#7A2E2A] text-white font-semibold py-3 rounded-sm hover:bg-[#5f2320] transition"
+                                    className="bg-[#7A2E2A] text-white font-semibold py-3 rounded-sm hover:bg-[#5f2320] transition cursor-pointer"
                                 >
                                     Confirm Booking
                                 </button>
