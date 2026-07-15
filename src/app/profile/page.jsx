@@ -1,5 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import Link from "next/link";
 
 const MyProfilePage = () => {
     const { data: session } = authClient.useSession();
@@ -34,6 +35,13 @@ const MyProfilePage = () => {
                     {user.name}
                 </h2>
                 <p className="text-[#6B675C] mt-1">{user.email}</p>
+
+                <Link
+                    href="/profile/update"
+                    className="mt-6 bg-[#7A2E2A] text-white font-semibold text-sm px-6 py-2.5 rounded-sm hover:bg-[#5f2320] transition"
+                >
+                    Update Information
+                </Link>
             </div>
         </div>
     );
