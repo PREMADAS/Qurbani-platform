@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QurbaniHat – Livestock Booking Platform 
 
-## Getting Started
+QurbaniHat is a modern livestock marketplace where users can explore animals available for Qurbani, such as cows and goats. Users can browse animal details and place a booking after logging in to the platform.
 
-First, run the development server:
+## 🔗 Links
+- **GitHub Repository:** [https://github.com/PREMADAS/Qurbani-platform](https://github.com/PREMADAS/Qurbani-platform)
+- **Live URL:** [Add your live site link here]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Purpose
+The purpose of this project is to provide a simple and user-friendly platform where people can:
+- Browse a wide range of Qurbani animals (cows, goats, etc.)
+- View detailed information about each animal
+- Book an animal for Qurbani after logging in
+- Manage their profile and update personal information
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
+- 🏠 **Home Page** – Hero banner, featured animals, Qurbani tips, and top breeds section
+- 🐮 **All Animals Page** – View all animals with sorting by price
+- 📄 **Animal Details Page** – Full animal details with a booking form (name, email, phone, address)
+- 🔐 **Authentication** – Email/Password login & registration, plus Google social login (via Better Auth)
+- 👤 **My Profile Page** – View logged-in user's profile info (name, photo, email)
+- ✏️ **Update Profile** – Update name and photo from a dedicated update page
+- 🔔 **Toast Notifications** – Success/error messages for login, registration, and booking
+- ⏳ **Loading States** – Loading indicators while fetching data
+- 🚫 **404 / Not Found Page** – Custom not-found page for invalid routes
+- 📱 **Fully Responsive** – Optimized for mobile, tablet, and desktop devices
+- 🔒 **Private Routes** – Animal details and profile pages are protected and require login
+- 🎬 **Smooth Animations** – Powered by React Spring
+- 🔑 **Environment Variables** – Sensitive keys (database URI, auth config, etc.) are secured using environment variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+##  Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Public Routes:**
+- `/` – Home
+- `/animal` – All Animals
+- `/auth/login` – Login
+- `/auth/register` – Register
 
-## Learn More
+**Private Routes:**
+- `/animal/[id]` – Animal Details & Booking
+- `/profile` – User Profile
+- `/profile/update` – Update Profile Information
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 NPM Packages Used
+- `next` – React framework (App Router)
+- `better-auth` – Authentication (Email/Password & Google login)
+- `react-hook-form` – Form handling and validation
+- `react-toastify` – Toast notifications
+- `react-spring` – Smooth animations
+- `mongodb` – Database for storing users and app data
+- `tailwindcss` – Utility-first CSS styling
+- `daisyUI` – Tailwind CSS component library
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
+- Next.js (App Router)
+- Tailwind CSS + daisyUI
+- MongoDB
+- Better Auth
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+1. Clone the repository
+   ```bash
+   git clone https://github.com/PREMADAS/Qurbani-platform.git
+   ```
+2. Navigate to the project folder
+   ```bash
+   cd Qurbani-platform
+   ```
+3. Install dependencies
+   ```bash
+   npm install
+   ```
+4. Create a `.env.local` file and add your environment variables
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   BETTER_AUTH_SECRET=your_secret_key
+   GOOGLE_CLIENT_ID=your_google_client_id
+   GOOGLE_CLIENT_SECRET=your_google_client_secret
+   ```
+5. Run the development server
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Note
+- Booking form data is not saved to a database or local storage; it only resets and shows a success toast on submission.
+- Email verification and forget password features are intentionally not implemented as per assignment guidelines.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

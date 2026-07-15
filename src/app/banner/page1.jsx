@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 const featuredAnimals = [
     {
-        "id": 1,
+        "id": 4,
         "name": "Australian Friesian Cross",
         "type": "Cow",
         "breed": "Friesian Cross",
@@ -13,7 +15,7 @@ const featuredAnimals = [
         "category": "Large Animal"
     },
     {
-        "id": 2,
+        "id": 7,
         "name": "Totapari Goat",
         "type": "Goat",
         "breed": "Totapari",
@@ -26,7 +28,7 @@ const featuredAnimals = [
         "category": "Small Animal"
     },
     {
-        "id": 3,
+        "id": 9,
         "name": "Arabian Camel",
         "type": "Camel",
         "breed": "Arabian",
@@ -39,7 +41,7 @@ const featuredAnimals = [
         "category": "Large Animal"
     },
     {
-        "id": 4,
+        "id": 10,
         "name": "Murrah Mohish",
         "type": "Buffalo",
         "breed": "Murrah",
@@ -96,9 +98,11 @@ const FeaturedAnimals = () => {
                                     ৳ {animal.price.toLocaleString()}
                                 </p>
 
-                                <button className="btn w-full mt-4 font-serif border border-[#1F2A24] bg-transparent hover:bg-[#1F2A24] hover:text-white">
-                                    View Details
-                                </button>
+                                <Link href={`/animal/${animal.id}`}>
+                                    <button className="btn w-full mt-4 font-serif border border-[#1F2A24] bg-transparent hover:bg-[#1F2A24] hover:text-white">
+                                        View Details
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

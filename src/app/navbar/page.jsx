@@ -110,7 +110,7 @@ const NavbarPage = () => {
             {/* Mobile Menu Panel */}
             <div className={`${isOpen ? 'block' : 'hidden'} md:hidden flex flex-col gap-1 px-6 pb-5 border-t border-black/10 bg-[#EEE3CC]`}>
                 <Link
-                    href="/profile"
+                    href="/"
                     onClick={() => setIsOpen(false)}
                     className="py-3 text-sm font-medium text-[#1F2A24] border-b border-black/10"
                 >
