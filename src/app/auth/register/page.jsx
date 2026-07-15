@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -29,17 +30,18 @@ const RegisterPage = () => {
             console.log("response:", { userData, error });
 
             if (error) {
-                alert(error.message);
+                toast.error(error.message);
             } else if (userData) {
-                alert("SignUp successful");
+                toast.success("Registration Successful!");
                 router.push("/auth/login");
             }
         } catch (err) {
             console.error("signUp failed:", err);
+            toast.error("Something went wrong. Please try again.");
         }
     };
 
-    
+
     return (
 
 
