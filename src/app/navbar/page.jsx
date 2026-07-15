@@ -57,18 +57,20 @@ const NavbarPage = () => {
                         </div>
                     ) : session ? (
                         <div className="flex items-center gap-3">
-                            
-                            {session.user?.image ? (
-                                <img
-                                    src={session.user.image}
-                                    alt={session.user?.name || "User"}
-                                    className="w-9 h-9 rounded-full object-cover border border-[#1F2A24]/20"
-                                />
-                            ) : (
-                                <div className="w-9 h-9 rounded-full bg-[#7A2E2A] flex items-center justify-center text-white font-semibold text-sm">
-                                    {session.user?.name?.charAt(0)?.toUpperCase() || "U"}
-                                </div>
-                            )}
+
+                            <Link href="/profile" title="My Profile">
+                                {session.user?.image ? (
+                                    <img
+                                        src={session.user.image}
+                                        alt={session.user?.name || "User"}
+                                        className="w-9 h-9 rounded-full object-cover border border-[#1F2A24]/20 hover:opacity-80 transition"
+                                    />
+                                ) : (
+                                    <div className="w-9 h-9 rounded-full bg-[#7A2E2A] flex items-center justify-center text-white font-semibold text-sm hover:opacity-80 transition">
+                                        {session.user?.name?.charAt(0)?.toUpperCase() || "U"}
+                                    </div>
+                                )}
+                            </Link>
                             <button
                                 onClick={handleLogout}
                                 className="px-4 py-2 text-sm font-semibold border border-[#1F2A24] text-[#1F2A24] rounded-sm hover:bg-[#1F2A24] hover:text-white transition"
@@ -108,7 +110,7 @@ const NavbarPage = () => {
             {/* Mobile Menu Panel */}
             <div className={`${isOpen ? 'block' : 'hidden'} md:hidden flex flex-col gap-1 px-6 pb-5 border-t border-black/10 bg-[#EEE3CC]`}>
                 <Link
-                    href="/"
+                    href="/profile"
                     onClick={() => setIsOpen(false)}
                     className="py-3 text-sm font-medium text-[#1F2A24] border-b border-black/10"
                 >
@@ -128,21 +130,28 @@ const NavbarPage = () => {
                     </div>
                 ) : session ? (
                     <div className="flex items-center gap-3 mt-4">
-                        {session.user?.image ? (
-                            <img
-                                src={session.user.image}
-                                alt={session.user?.name || "User"}
-                                className="w-9 h-9 rounded-full object-cover border border-[#1F2A24]/20"
-                            />
-                        ) : (
-                            <div className="w-9 h-9 rounded-full bg-[#7A2E2A] flex items-center justify-center text-white font-semibold text-sm">
-                                {session.user?.name?.charAt(0)?.toUpperCase() || "U"}
-                            </div>
-                        )}
+                        <Link
+                            href="/my-profile"
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center gap-3"
+                        >
+                            {session.user?.image ? (
+                                <img
+                                    src={session.user.image}
+                                    alt={session.user?.name || "User"}
+                                    className="w-9 h-9 rounded-full object-cover border border-[#1F2A24]/20"
+                                />
+                            ) : (
+                                <div className="w-9 h-9 rounded-full bg-[#7A2E2A] flex items-center justify-center text-white font-semibold text-sm">
+                                    {session.user?.name?.charAt(0)?.toUpperCase() || "U"}
+                                </div>
+                            )}
+                            <span className="text-sm font-medium text-[#1F2A24]">My Profile</span>
+                        </Link>
 
                         <button
                             onClick={() => { setIsOpen(false); handleLogout(); }}
-                            className="px-4 py-2 text-sm font-semibold border border-[#1F2A24] text-[#1F2A24] rounded-sm"
+                            className="ml-auto px-4 py-2 text-sm font-semibold border border-[#1F2A24] text-[#1F2A24] rounded-sm"
                         >
                             Logout
                         </button>
