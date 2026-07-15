@@ -55,14 +55,14 @@ const AnimalDetailsPage = () => {
 
             <div className="grid md:grid-cols-2 gap-10">
                 {/* Left: Image */}
-                <div className="relative bg-gray-200 border border-[#1F2A24]/10 rounded-md flex items-center justify-center min-h-[400px]">
-                    <span className="absolute top-4 right-4 bg-white border border-[#1F2A24]/20 rounded px-3 py-1 text-sm ">
+                <div className="relative bg-gray-200 border border-[#1F2A24]/10 rounded-md h-[400px] p-4">
+                    <span className="absolute top-4 right-4 bg-white border border-[#1F2A24]/20 rounded px-3 py-1 text-sm z-10">
                         ID · {String(animal.id).padStart(4, "0")}
                     </span>
                     <img
                         src={animal.image}
                         alt={animal.name}
-                        className="max-h-[300px] object-contain"
+                        className="w-full h-full rounded-md object-contain"
                     />
                 </div>
 
