@@ -4,7 +4,7 @@ QurbaniHat is a modern livestock marketplace where users can explore animals ava
 
 ## 🔗 Links
 - **GitHub Repository:** [https://github.com/PREMADAS/Qurbani-platform](https://github.com/PREMADAS/Qurbani-platform)
-- **Live URL:** [Add your live site link here]
+- **Live URL:** [https://qurbani-platform-troy-git-main-prema-das-projects.vercel.app/]
 
 ## Purpose
 The purpose of this project is to provide a simple and user-friendly platform where people can:
