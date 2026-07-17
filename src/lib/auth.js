@@ -9,10 +9,16 @@ const db = client.db();
 
 export const auth = betterAuth({
 
+    baseURL: process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL,
+    trustedOrigins: [
+        "https://qurbani-platform-troy.vercel.app",
+    ],
+
     database: mongodbAdapter(db, {
-        // Optional: if you don't provide a client, database transactions won't be enabled.
+
         client
     }),
+
     emailAndPassword: {
         enabled: true,
     },
